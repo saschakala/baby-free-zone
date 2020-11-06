@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_05_232640) do
+ActiveRecord::Schema.define(version: 2020_11_06_200032) do
+
+  create_table "birth_controls", force: :cascade do |t|
+    t.string "name"
+    t.string "method"
+    t.string "active_ingredient"
+    t.float "dosage"
+    t.string "type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.string "side_effects"
+    t.integer "user_id", null: false
+    t.integer "birth_control_id", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["birth_control_id"], name: "index_reviews_on_birth_control_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +42,12 @@ ActiveRecord::Schema.define(version: 2020_11_05_232640) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "reviews", "birth_controls"
+  add_foreign_key "reviews", "users"
 end
