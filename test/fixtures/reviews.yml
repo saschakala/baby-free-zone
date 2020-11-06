@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rating: 1
+  side_effects: MyString
+  user: one
+  birth_control: one
+  description: MyText
+
+two:
+  rating: 1
+  side_effects: MyString
+  user: two
+  birth_control: two
+  description: MyText
