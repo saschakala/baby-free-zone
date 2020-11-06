@@ -1,0 +1,2 @@
+class BirthControlsController < ApplicationController
+end

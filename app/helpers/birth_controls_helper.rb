@@ -1,0 +1,2 @@
+module BirthControlsHelper
+end

@@ -1,0 +1,2 @@
+class BirthControl < ApplicationRecord
+end
