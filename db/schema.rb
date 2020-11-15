@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_182649) do
-
-  create_table "birth_control_side_effects", force: :cascade do |t|
-    t.integer "birth_control_id", null: false
-    t.integer "side_effect_id", null: false
-    t.index ["birth_control_id"], name: "index_birth_control_side_effects_on_birth_control_id"
-    t.index ["side_effect_id"], name: "index_birth_control_side_effects_on_side_effect_id"
-  end
+ActiveRecord::Schema.define(version: 2020_11_15_222029) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
@@ -27,6 +20,13 @@ ActiveRecord::Schema.define(version: 2020_11_15_182649) do
     t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "review_side_effects", force: :cascade do |t|
+    t.integer "review_id", null: false
+    t.integer "side_effect_id", null: false
+    t.index ["review_id"], name: "index_review_side_effects_on_review_id"
+    t.index ["side_effect_id"], name: "index_review_side_effects_on_side_effect_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2020_11_15_182649) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "birth_control_side_effects", "birth_controls"
-  add_foreign_key "birth_control_side_effects", "side_effects"
+  add_foreign_key "review_side_effects", "reviews"
+  add_foreign_key "review_side_effects", "side_effects"
   add_foreign_key "reviews", "birth_controls"
   add_foreign_key "reviews", "users"
 end
