@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :side_effects
   resources :reviews
   resources :birth_controls
   devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks' }
