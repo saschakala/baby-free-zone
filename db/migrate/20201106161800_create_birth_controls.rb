@@ -5,7 +5,7 @@ class CreateBirthControls < ActiveRecord::Migration[6.0]
       t.string :method
       t.string :active_ingredient
       t.float :dosage
-      t.string :type
+      t.string :type #for pills only (to signify if combo or progestin)
 
       t.timestamps
     end

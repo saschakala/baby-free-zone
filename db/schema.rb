@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_210618) do
+ActiveRecord::Schema.define(version: 2020_11_15_170432) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
     t.string "method"
     t.string "active_ingredient"
-    t.float "dosage"
-    t.string "type" #for pills only
+    t.string "dosage"
+    t.string "type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
