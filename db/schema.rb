@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_171557) do
+ActiveRecord::Schema.define(version: 2020_11_15_181135) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(version: 2020_11_15_171557) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "side_effects", force: :cascade do |t|
-    t.string "name"
-    t.integer "severity"
-    t.integer "review_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["review_id"], name: "index_side_effects_on_review_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,5 +51,4 @@ ActiveRecord::Schema.define(version: 2020_11_15_171557) do
 
   add_foreign_key "reviews", "birth_controls"
   add_foreign_key "reviews", "users"
-  add_foreign_key "side_effects", "reviews"
 end
