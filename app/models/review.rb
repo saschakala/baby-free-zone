@@ -7,4 +7,9 @@ class Review < ApplicationRecord
   validates :rating, :inclusion => 1..10
   
   scope :bc, -> (id) { where(birth_control_id: id) }
+
+  def bc_name
+    self.birth_control.name
+  end
+
 end

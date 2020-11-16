@@ -3,11 +3,12 @@
     <ul>
     
         <% @reviews.each do |review| %>
-            <li><h3><%= review.title%></h3>
-            <p><b>rating: <%= review.rating%> / 10</b></p>
-            <p>birth control: <%= review.birth_control.name %></p>
+            <h3><%= review.title%></h3>
+            <p><b>rating: <%= review.rating%> </b>/ 10</p>
+            <p><em>birth control: <%= review.bc_name %></em></p>
+            <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
+            <p><%= review.description %></p>
             <br>
-            </li>
         <% end %>
     </ul>
     </div>
