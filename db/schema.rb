@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_224359) do
+ActiveRecord::Schema.define(version: 2020_11_16_041542) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
     t.string "method"
     t.string "active_ingredient"
     t.string "dosage"
-    t.string "hormone_type" #for pill methods
+    t.string "hormone_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "generic_name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_11_15_224359) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.index ["birth_control_id"], name: "index_reviews_on_birth_control_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
