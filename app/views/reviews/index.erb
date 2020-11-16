@@ -1,10 +1,14 @@
 <div class="container">
     <div class="row">
-        <ul>
-            <% @reviews.each do |review| %>
-            <li> <%= review.rating%></li>
-            <% end %>
-
-        </ul>
+    <ul>
+    
+        <% @reviews.each do |review| %>
+            <li><h3><%= review.title%></h3>
+            <p><b>rating: <%= review.rating%> / 10</b></p>
+            <p>birth control: <%= review.birth_control.name %></p>
+            <br>
+            </li>
+        <% end %>
+    </ul>
     </div>
 </div>
