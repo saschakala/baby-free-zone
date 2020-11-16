@@ -1,0 +1,32 @@
+<h2>
+    You've selected <em><%= @bc.name %></em>
+</h2>
+
+<h3>
+    <%= @bc.name %> is a 
+    <% if @bc.method == "pill" %>
+        birth control
+    <% end %><%= @bc.method %>
+</h3>
+
+<p>
+    <b>Generic names for <%= @bc.name %> include:</b> <%= @bc.generic_name %>
+</p>
+
+<p>
+    <b>Active ingredient(s):</b> <%= @bc.active_ingredient %>
+</p>
+
+<p>
+    <b>Dosage:</b> <%= @bc.dosage %>
+</p>
+
+<% if @bc.method == "pill" %>
+<p>
+    <b>Pill type:</b> <%= @bc.hormone_type %> 
+    <% if @bc.hormone_type == "combination" %>
+        (estrogen and progestin)
+    <% end %>
+</p>
+<% end %>
+
