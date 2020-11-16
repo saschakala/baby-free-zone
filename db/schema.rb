@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_041542) do
+ActiveRecord::Schema.define(version: 2020_11_16_051415) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_041542) do
 
   create_table "side_effects", force: :cascade do |t|
     t.string "name"
-    t.integer "severity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
