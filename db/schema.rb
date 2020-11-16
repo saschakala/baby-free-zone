@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_051415) do
+ActiveRecord::Schema.define(version: 2020_11_16_051614) do
 
   create_table "birth_controls", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_051415) do
   create_table "review_side_effects", force: :cascade do |t|
     t.integer "review_id", null: false
     t.integer "side_effect_id", null: false
+    t.integer "severity"
     t.index ["review_id"], name: "index_review_side_effects_on_review_id"
     t.index ["side_effect_id"], name: "index_review_side_effects_on_side_effect_id"
   end
