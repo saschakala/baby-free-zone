@@ -12,4 +12,11 @@ class BirthControl < ApplicationRecord
             true
         end
     end
+
+    def has_generic?
+        if self.generic_name && self.generic_name != ""
+            true
+        end
+    end
+
 end

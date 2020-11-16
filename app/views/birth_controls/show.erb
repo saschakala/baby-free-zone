@@ -15,7 +15,12 @@
 </h3>
 
 <p>
-    <b>Generic names for <%= @bc.name %> include:</b> <%= @bc.generic_name %>
+    <b>Generic names for <%= @bc.name %> include:</b> 
+    <% if @bc.has_generic? %> 
+        <%= @bc.generic_name %>
+    <% else %>
+        <em>there is no generic version of this medication</em>
+    <% end %>
 </p>
 
 <p>
