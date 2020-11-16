@@ -8,6 +8,7 @@
             <p><em>birth control: <%= review.bc_name %></em></p>
             <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
             <p>"<%= review.description %>"</p>
+            <% if review.has_side_effects? %>
             <h4>Side Effects:</h4>
             <% review.side_effects.each do |s| %>
                 <ul>
@@ -16,7 +17,7 @@
                     </li>
                 </ul>
             <% end %>
-
+            <% end %>
             <br>
         <% end %>
     </ul>

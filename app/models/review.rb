@@ -14,4 +14,14 @@ class Review < ApplicationRecord
     self.birth_control.name
   end
 
+  # def has_side_effects?
+  #   if self.side_effects[0] != ""
+  #     true
+  #   end
+  # end
+
+  def has_side_effects?
+    self.side_effects[0]
+  end
+
 end
