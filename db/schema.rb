@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_11_15_224359) do
     t.string "method"
     t.string "active_ingredient"
     t.string "dosage"
-    t.string "hormone_type"
+    t.string "hormone_type" #for pill methods
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "generic_name"

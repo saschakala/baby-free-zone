@@ -3,7 +3,12 @@
 </h2>
 
 <h3>
-    <%= @bc.name %> is a 
+    <%= @bc.name %> is
+    <% if @bc.starts_with_vowel? %> 
+        an 
+    <% else %>
+        a
+    <% end %>
     <% if @bc.method == "pill" %>
         birth control
     <% end %><%= @bc.method %>
