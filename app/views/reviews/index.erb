@@ -12,7 +12,7 @@
             <% review.side_effects.each do |s| %>
                 <ul>
                     <li>
-                        <p><%= s.name %></p>
+                        <p><b><%= s.name %></b>, severity: <%= s.review_side_effects[0].severity %>/5</p>
                     </li>
                 </ul>
             <% end %>
