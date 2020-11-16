@@ -7,7 +7,16 @@
             <p><b>rating: <%= review.rating%> </b>/ 10</p>
             <p><em>birth control: <%= review.bc_name %></em></p>
             <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
-            <p><%= review.description %></p>
+            <p>"<%= review.description %>"</p>
+            <h4>Side Effects:</h4>
+            <% review.side_effects.each do |s| %>
+                <ul>
+                    <li>
+                        <p><%= s.name %></p>
+                    </li>
+                </ul>
+            <% end %>
+
             <br>
         <% end %>
     </ul>
