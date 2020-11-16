@@ -19,4 +19,5 @@ class BirthControl < ApplicationRecord
         end
     end
 
+
 end
