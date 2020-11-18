@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     def index
         @reviews = Review.bc(params[:birth_control_id])
+        @bc = BirthControl.find_by_id(params[:birth_control_id])
     end
     
     def new
