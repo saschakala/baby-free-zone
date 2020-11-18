@@ -19,5 +19,11 @@ class BirthControl < ApplicationRecord
         end
     end
 
+    def has_reviews?
+        if self.reviews && self.reviews != []
+            true
+        end
+    end
+
 
 end

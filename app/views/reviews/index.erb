@@ -41,32 +41,43 @@
 <% end %>
 
 <h3> <%= link_to "Hide Reviews", birth_control_path(@bc) %></h3>
-<h3> <%= link_to "Add new review", new_birth_control_review_path(@bc) %></h3>
 
 
 
 <div class="container">
     <div class="row">
+
+
+
+    <% if @bc.has_reviews? %>
+    <h3> <%= link_to "Add new review", new_birth_control_review_path(@bc) %></h3>
     <ul>
-    
         <% @reviews.each do |review| %>
             <h3><%= review.title%></h3>
             <p><b>rating: <%= review.rating%> </b>/ 10</p>
             <p><em>birth control: <%= review.bc_name %></em></p>
             <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
             <p>"<%= review.description %>"</p>
+
             <% if review.has_side_effects? %>
-            <h4>Side Effects:</h4>
-            <% review.side_effects.each do |s| %>
-                <ul>
-                    <li>
-                        <p><b><%= s.name %></b>, severity: <%= s.review_side_effects[0].severity %>/5</p>
-                    </li>
-                </ul>
-            <% end %>
+                <h4>Side Effects:</h4>
+                <% review.side_effects.each do |s| %>
+                    <ul>
+                        <li>
+                            <p><b><%= s.name %></b>, severity: <%= s.review_side_effects[0].severity %>/5</p>
+                        </li>
+                    </ul>
+                <% end %>
             <% end %>
             <br>
         <% end %>
-    </ul>
+        </ul>
+
+    <% else %>
+        <p>This birth control has not yet been reviewed.</p>
+        <h3> <%= link_to "Add new review", new_birth_control_review_path(@bc) %></h3>
+    <% end %>
+    
     </div>
 </div>
+
