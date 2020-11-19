@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :set_birth_control, only: [:index, :new, :destroy]
+    before_action :set_birth_control, only: [:index, :new, :create, :destroy]
     before_action :set_review, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -12,9 +12,10 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = Review.new(review_params)
+        @review = current_user.reviews.build(rating: review_params[:rating], birth_control_id: @bc.id, description: review_params[:description], title: review_params[:title])
+        # @review = Review.new(review_params)
         if @review.save
-            redirect_to birth_control_review_path(@bc, @review)
+            redirect_to birth_control_reviews_path
         else
             render :new
         end
@@ -35,7 +36,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:title, :rating, :description, :side_effects_attributes [:id, :name])
+        params.require(:review).permit(:title, :rating, :description)
     end
 
     def set_birth_control
