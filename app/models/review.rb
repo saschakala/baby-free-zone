@@ -4,7 +4,8 @@ class Review < ApplicationRecord
   has_many :review_side_effects
   has_many :side_effects, through: :review_side_effects
 
-  validates :rating, :inclusion => 1..10
+  validates :rating, presence: true
+  validates :title, presence: true
 
   accepts_nested_attributes_for :review_side_effects
   accepts_nested_attributes_for :side_effects
