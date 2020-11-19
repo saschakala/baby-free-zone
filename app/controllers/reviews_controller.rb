@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
-    before_action :set_birth_control, only: [:index, :new]
+    before_action :set_birth_control, only: [:index, :new, :destroy]
+    before_action :set_review, only: [:show, :edit, :update, :destroy]
 
     def index
         @reviews = Review.bc(params[:birth_control_id])
@@ -27,6 +28,8 @@ class ReviewsController < ApplicationController
     end
 
     def destroy
+        @review.destroy
+        redirect_to birth_control_reviews_path(@bc)
     end
 
     private
@@ -37,6 +40,10 @@ class ReviewsController < ApplicationController
 
     def set_birth_control
         @bc = BirthControl.find_by_id(params[:birth_control_id])
+    end
+
+    def set_review
+        @review = Review.find_by_id(params[:id])
     end
 
 
