@@ -1,4 +1,4 @@
-<h1>Log a new review</h1>
+<h1>Log a new review for <em><%= @bc.name %></em></h1>
 
 <%= form_with url: birth_control_reviews_path(@bc), local: true do |f| %>
 <b><%= f.label :title, "Review title:" %></b>
