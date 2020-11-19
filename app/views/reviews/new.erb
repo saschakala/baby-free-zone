@@ -1,6 +1,6 @@
 <h1>Log a new review</h1>
 
-<%= form_with model: @review, local: true do |f| %>
+<%= form_with url: birth_control_reviews_path(@bc), local: true do |f| %>
 <b><%= f.label :title, "Review title:" %></b>
 <%= f.text_field :title %> <br> <br> <br>
 <p><b>Rating:</b></p>
@@ -17,10 +17,13 @@
 <b><%= f.label :description, "Describe your experience:" %></b>
 <%= f.text_area :description %><br><br>
 
-<%= f.fields_for :review_side_effects do |s| %>
+<p><b>Side Effects:</b></p>
+<%= f.fields_for :side_effects do |s| %>
     <%= s.collection_check_boxes(:name, SideEffect.all, :id, :name)  %>
 <% end %>
 
+<br>
+<br>
 
 
 
