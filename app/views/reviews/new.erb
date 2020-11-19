@@ -17,6 +17,14 @@
 <b><%= f.label :description, "Describe your experience:" %></b>
 <%= f.text_area :description %><br><br>
 
+<%= f.fields_for :review_side_effects do |s| %>
+    <%= s.collection_check_boxes(:name, SideEffect.all, :id, :name)  %>
+<% end %>
+
+
+
+
+
 <%= f.submit "Publish Review"%>
 
 

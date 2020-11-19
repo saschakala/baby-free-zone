@@ -7,6 +7,7 @@ class Review < ApplicationRecord
   validates :rating, :inclusion => 1..10
 
   accepts_nested_attributes_for :review_side_effects
+  accepts_nested_attributes_for :side_effects
   
   scope :bc, -> (id) { where(birth_control_id: id) }
 
