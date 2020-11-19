@@ -1,6 +1,10 @@
+<% if @review.errors.any? %>
+        <h5 class="error"><%= @review.errors.full_messages.to_sentence %></h5>
+<% end %>
+
 <h1>Log a new review for <em><%= @bc.name %></em></h1>
 
-<%= form_with url: birth_control_reviews_path(@bc), local: true do |f| %>
+<%= form_with model: [@bc, @review], local: true do |f| %>
 <b><%= f.label :title, "Review title:" %></b>
 <%= f.text_field :title %> <br> <br> <br>
 <p><b>Rating:</b></p>
@@ -18,9 +22,7 @@
 <%= f.text_area :description %><br><br>
 
 <p><b>Side Effects:</b></p>
-<%= f.fields_for :side_effects do |s| %>
-    <%= s.collection_check_boxes(:name, SideEffect.all, :id, :name)  %>
-<% end %>
+<%= collection_check_boxes :name, SideEffect.all, :id, :name  %>
 
 <br>
 <br>
