@@ -23,9 +23,10 @@
 
 
 
-<%= f.fields_for :side_effects do |s| %>
-    <%= s.collection_check_boxes(:name, SideEffect.all, :id, :name)  %>
+<%= f.fields_for :side_effect do |s| %>
+    <%= s.collection_check_boxes(:id, SideEffect.all, :id, :name)  %>
 <% end %>
+
 
 
 <br>
@@ -35,6 +36,8 @@
 
 
 <%= f.submit "Publish Review"%>
+
+
 
 
 <% end %>

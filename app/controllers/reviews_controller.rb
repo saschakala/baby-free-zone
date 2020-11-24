@@ -13,7 +13,9 @@ class ReviewsController < ApplicationController
 
     def create
         @review = current_user.reviews.build(rating: review_params[:rating], birth_control_id: @bc.id, description: review_params[:description], title: review_params[:title])
+        @review.side_effects 
         # @review = Review.new(review_params)
+        # @binding.pry
         if @review.save
             redirect_to birth_control_reviews_path
         else
@@ -21,6 +23,8 @@ class ReviewsController < ApplicationController
         end
 
     end
+
+   
 
     def edit
     end
@@ -36,7 +40,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:title, :rating, :description, :birth_control_id)
+        params.require(:review).permit(:title, :rating, :description, side_effects_attributes: [:name, :id])
     end
 
     def set_birth_control
