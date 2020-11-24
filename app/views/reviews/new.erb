@@ -22,6 +22,12 @@
 <%= f.text_area :description %><br><br>
 
 
+
+<%= f.fields_for :side_effects do |s| %>
+    <%= s.collection_check_boxes(:name, SideEffect.all, :id, :name)  %>
+<% end %>
+
+
 <br>
 <br>
 

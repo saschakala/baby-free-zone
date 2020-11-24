@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:title, :rating, :description)
+        params.require(:review).permit(:title, :rating, :description, :birth_control_id)
     end
 
     def set_birth_control
