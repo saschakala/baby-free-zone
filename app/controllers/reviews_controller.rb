@@ -5,9 +5,6 @@ class ReviewsController < ApplicationController
     def index
         @reviews = Review.bc(params[:birth_control_id])
     end
-
-    def show
-    end
     
     def new
         @review = Review.new
@@ -27,12 +24,22 @@ class ReviewsController < ApplicationController
 
     end
 
-   
 
     def edit
     end
 
     def update
+        if @review
+            @review.update(rating: review_params[:rating], birth_control_id: @bc.id, description: review_params[:description], title: review_params[:title])
+            @review.side_effects = set_side_effects
+            if @review.errors.any?
+                render 'edit'
+            else
+                redirect_to birth_control_reviews_path (@bc)
+            end
+        else
+            render 'edit'
+        end
     end
 
     def destroy
