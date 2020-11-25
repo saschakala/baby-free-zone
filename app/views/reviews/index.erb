@@ -70,7 +70,7 @@
                 <% end %>
             <% end %>
             <% if current_user.id = review.user_id %>
-            <h6><%= link_to("Delete your review", @review, method: :delete, data:{confirm: "Do you really want to delete?"}) %></h6>
+            <h6><%= link_to("Delete your review", birth_control_review_path(review.birth_control, review), method: :delete, data:{confirm: "Do you really want to delete?"}) %></h6>
             <% end %>
             <br>
         <% end %>
