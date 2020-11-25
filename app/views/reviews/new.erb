@@ -21,7 +21,7 @@
 <b><%= f.label :description, "Describe your experience:" %></b>
 <%= f.text_area :description %><br><br>
 
-
+<p><b>Side Effects:</b></p>
 
 <%= f.fields_for :side_effect do |s| %>
     <%= s.collection_check_boxes(:id, SideEffect.all, :id, :name)  %>
