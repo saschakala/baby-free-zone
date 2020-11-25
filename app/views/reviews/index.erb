@@ -54,7 +54,7 @@
     <ul>
         <% @reviews.each do |review| %>
             <h3><%= review.title%></h3>
-            <p><b>rating: <%= review.rating%> </b>/ 10</p>
+            <p><b>rating: <%= review.rating%> </b>/ 5</p>
             <p><em>birth control: <%= review.bc_name %></em></p>
             <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
             <p>"<%= review.description %>"</p>
@@ -74,11 +74,11 @@
             <% end %>
             <br>
         <% end %>
-        </ul>
+    </ul>
 
     <% else %>
-        <p>This birth control has not yet been reviewed.</p>
-        <h3> <%= link_to "Write the first review", new_birth_control_review_path(@bc) %></h3>
+        <h5> <%= link_to "Not yet reviewed: write the first review", new_birth_control_review_path(@bc) %> </h5>
+        
     <% end %>
     
     </div>
