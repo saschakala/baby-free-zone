@@ -75,6 +75,14 @@
    display: block;
  }
 
+ #flash_error {
+     color: #fe019a;
+}
+
+#review.error {
+  color: #fe019a;
+}
+
  #header{
   width:100%; 
   background: url(yourimage);

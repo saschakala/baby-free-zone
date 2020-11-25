@@ -1,5 +1,5 @@
 <% if @review.errors.any? %>
-        <h5 class="error"><%= @review.errors.full_messages.to_sentence %></h5>
+        <h5 class="error" id="review"><%= @review.errors.full_messages.to_sentence %></h5>
 <% end %>
 
 <h1>Log a new review for <em><%= @bc.name %></em></h1>
