@@ -16,12 +16,12 @@ class Review < ApplicationRecord
     self.birth_control.name
   end
 
-  def side_effect_ids=(ids)
-    id.each do |id|
-      side_effect = SideEffect.find_by_id(id)
-      self.side_effects << side_effect
-    end
-  end
+  # def side_effect_ids=(ids)
+  #   id.each do |id|
+  #     side_effect = SideEffect.find_by_id(id)
+  #     self.side_effects << side_effect
+  #   end
+  # end
 
 
   # def has_side_effects?
