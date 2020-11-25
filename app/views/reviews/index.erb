@@ -64,10 +64,13 @@
                 <% review.side_effects.each do |s| %>
                     <ul>
                         <li>
-                            <p><b><%= s.name %></b>, severity: <%= s.review_side_effects[0].severity %>/5</p>
+                            <p><%= s.name %></p>
                         </li>
                     </ul>
                 <% end %>
+            <% end %>
+            <% if current_user.id = review.user_id %>
+            <h6><%= link_to("Delete your review", @review, method: :delete, data:{confirm: "Do you really want to delete?"}) %></h6>
             <% end %>
             <br>
         <% end %>
