@@ -24,7 +24,10 @@
 <p><b>Side Effects:</b></p>
 
 <%= f.fields_for :side_effect do |s| %>
-    <%= s.collection_check_boxes(:id, SideEffect.all, :id, :name)  %>
+    <%= s.collection_check_boxes(:id, SideEffect.all, :id, :name) do |b|  %>
+    <div  class="checkbox-wrapper">
+        <p><%= b.label(:"data-value" => b.value) { b.check_box + b.text } %></p>
+   <% end %>
 <% end %>
 
 
