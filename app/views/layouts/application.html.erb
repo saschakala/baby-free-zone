@@ -14,9 +14,17 @@
         <%= render 'layouts/nav' %>
     </div>
 </div>
- 
+
 
   <body>
+  <br>
+    <div class="wrapper">
+          <% flash.keys.each do | type|  %>
+            <div id="flash_error">
+            <strong> <%= flash[type] %> </strong> 
+        <% end %> 
+    </div>
+
   
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

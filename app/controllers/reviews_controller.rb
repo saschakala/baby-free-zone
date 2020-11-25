@@ -7,8 +7,12 @@ class ReviewsController < ApplicationController
     end
     
     def new
-        @review = Review.new
-        # 2.times { @review.side_effects.build}
+        if user_signed_in?
+            @review = Review.new
+        else
+            flash[:must_login] = "You must be signed in to leave a review."
+            redirect_to new_user_session_path
+        end
     end
 
     def create
