@@ -1,8 +1,8 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :birth_control
-  has_many :review_side_effects
-  has_many :side_effects, through: :review_side_effects
+  has_many :review_side_effects, dependent: :destroy
+  has_many :side_effects, through: :review_side_effects, dependent: :destroy
 
   validates :rating, presence: true
   validates :title, presence: true
