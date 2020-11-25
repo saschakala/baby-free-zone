@@ -57,7 +57,9 @@
             <p><b>rating: <%= review.rating%> </b>/ 5</p>
             <p><em>birth control: <%= review.bc_name %></em></p>
             <p><em>reviewed on: <%= review.created_at.strftime("%b %d, %Y") %></em></p>
-            <p>"<%= review.description %>"</p>
+            <% if review.has_description? %>
+                <p>"<%= review.description %>"</p>
+            <% end %>
 
             <% if review.has_side_effects? %>
                 <h4>Side Effects:</h4>

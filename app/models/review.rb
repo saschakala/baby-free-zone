@@ -34,4 +34,10 @@ class Review < ApplicationRecord
     self.side_effects[0]
   end
 
+  def has_description?
+    if self.description && self.description != ""
+      true
+    end
+  end
+
 end
